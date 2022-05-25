@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const port = 3000;
 const mainRouter = require('./src/routers/mainRouter')
+const loginRouter = require('./src/routers/loginRouter')
 
 // Configura o servidor para ler a extensão ejs
 app.set('view engine', 'ejs')
@@ -13,5 +14,6 @@ app.set('views', path.join(__dirname, 'src', 'views'));
 
 // Iniciamos a primeira rota da homePage
 app.use('/', mainRouter);
+app.use('/login', loginRouter);
 
 app.listen(port, () => console.log(`Este servitor esta rodando na porta ${port}` ))
